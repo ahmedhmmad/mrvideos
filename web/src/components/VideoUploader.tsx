@@ -25,7 +25,9 @@ const VideoUploader: React.FC = () => {
 
     try {
       // Get pre-signed URL from your backend
-      const { data: { url } } = await axios.get('https://wwe5pixqhc.execute-api.us-east-1.amazonaws.com/prod/');
+      const { data: { url } } = await axios.post('https://fqc5auu8xa.execute-api.us-east-1.amazonaws.com/prod/', {
+        fileName: file.name,
+      });
 
       // Upload to S3
       await axios.put(url, file, {
